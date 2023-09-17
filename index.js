@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
+app.get('/users', (req, res) => {
+  res.status(200).json({_id: 1, name: "Shree"});
+});
+
 // Start server
 const port = process.env.PORT
 app.listen(port, () => {
