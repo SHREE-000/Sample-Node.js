@@ -4,7 +4,7 @@ info:
   description: A simple example Swagger YAML file
   version: 1.0.0
 paths:
-  http://localhost:5001/user:
+  http://localhost:5001/123/user:
     get:
       summary: Get a list of users
       description: Retrieves a list of user profiles.
