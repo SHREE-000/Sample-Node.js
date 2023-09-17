@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-app.get('/usere', (req, res) => {
+app.get('/user', (req, res) => {
   res.status(200).json({_id: 1, name: "Shree"});
 });
 
