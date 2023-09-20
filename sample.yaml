@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title: Sample API
-  description: A simple example Swagger YAML file
+  title: User API
+  description: API for managing user data
   version: 1.0.0
 paths:
   /users:
     get:
-      summary: Get a list of users
+      summary: Get all users
       responses:
         '200':
           description: Successful response
@@ -17,3 +17,68 @@ paths:
                   name: John
                 - id: 2
                   name: Alice
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              example:
+                id: 3
+                name: Bob
+  /users/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the user to be updated/deleted
+        schema:
+          type: integer
+    get:
+      summary: Get a user by ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                name: John
+    put:
+      summary: Update a user by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+                - name
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              example:
+                id: 1
+                name: Updated John
+    delete:
+      summary: Delete a user by ID
+      responses:
+        '204':
+          description: User deleted successfully
